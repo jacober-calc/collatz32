@@ -1,0 +1,80 @@
+# STACK
+
+# REGS
+
+# FLAGS
+
+# SEED
+
+# MODE
+MTRIG: DEG
+MFMT: FIX 6
+
+# EQUATION LIST
+EQNPTR: 0
+EQN
+EQNEND
+
+# PROGRAM
+PTR: 0
+PGM
+  LBL Z
+  CL\Sig;
+  CLVARS
+  STO Z
+  LBL C
+  STO A
+  RCL Y
+  x<>y
+  x\ge;y?
+  STO Y
+  2
+  \div;
+  FP
+  2
+  \mul;
+  x=0?
+  GTO D
+  GTO E
+  LBL D
+  RCL A
+  2
+  \div;
+  FS? 1
+  PSE
+  FS? 2
+  STOP
+  STO A
+  \Sig;+
+  RCL A
+  1
+  x<>y
+  x\le;y?
+  GTO F
+  GTO C
+  LBL E
+  RCL A
+  3
+  \mul;
+  1
+  +
+  FS? 1
+  PSE
+  FS? 2
+  STOP
+  STO A
+  \Sig;+
+  RCL A
+  GTO C
+  LBL F
+  RCL Z
+  n
+  RCL Y
+  x<>y
+  CLVARS
+  CL\Sig;
+  R\up;
+  CLx
+  R\down;
+  RTN
+PGMEND
